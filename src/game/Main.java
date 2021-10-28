@@ -3,8 +3,8 @@ package game;
 public class Main {
 
 	public static void main(String[] args) {
-		// First upload... 
-
+		// First upload...
+		System.out.println("Katarina");
 	}
 
 }
