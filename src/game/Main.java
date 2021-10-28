@@ -6,6 +6,7 @@ public class Main {
 		// First upload...
 		System.out.println("Katarina");
 		System.out.println("Osama");
+		System.out.println("Tack Osama och Mohamad");
 	}
 
 }
