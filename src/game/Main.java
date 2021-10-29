@@ -10,14 +10,14 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 				
-		int[][] spelplan = new int[3][3];
+		String[][] spelplan = new String[3][3];
 		
 		System.out.println("Välkommen till tre i rad! \n");
 		
 		//Indexierar arrayerna med 1-9
 		for( int rad = 0, raknare = 1; rad < 3; rad++) {
 			for( int kol=0; kol < 3; kol++, raknare++) {
-				spelplan[rad][kol]=raknare;
+				spelplan[rad][kol]=raknare + " ";
 			}//end nästalad for-loop			
 		}//end yttre foor-loop
 		
@@ -32,21 +32,21 @@ public class Main {
 		System.out.println();
 		
 		//användaren väljer ruta
-		System.out.print("Dina rutor markeras med 11."); 
+		System.out.print("Dina rutor markeras med O."); 
 		System.out.print(" På vilken siffra vill du lägga din markering? "); 
 		int valdRuta=sc.nextInt();
 		
 		//här måste valdra nr spärras
 		switch(valdRuta) { //det här kan vara en metod
-		case 1 -> spelplan[0][0] = 11;
-		case 2 -> spelplan[0][1] = 11;
-		case 3 -> spelplan[0][2] = 11;
-		case 4 -> spelplan[1][0] = 11;
-		case 5 -> spelplan[1][1] = 11;
-		case 6 -> spelplan[1][2] = 11;
-		case 7 -> spelplan[2][0] = 11;
-		case 8 -> spelplan[2][1] = 11;
-		case 9 -> spelplan[2][2] = 11;	
+		case 1 -> spelplan[0][0] = "O";
+		case 2 -> spelplan[0][1] = "O";
+		case 3 -> spelplan[0][2] = "O";
+		case 4 -> spelplan[1][0] = "O";
+		case 5 -> spelplan[1][1] = "O";
+		case 6 -> spelplan[1][2] = "O";
+		case 7 -> spelplan[2][0] = "O";
+		case 8 -> spelplan[2][1] = "O";
+		case 9 -> spelplan[2][2] = "O";	
 		}
 		
 		
@@ -64,15 +64,15 @@ public class Main {
 		Random rand = new Random(); //det här kan vara en metod
 		int slumpadRuta = rand.nextInt(8) + 1; //här måste valda nr markeras så det slumpas om till ett ledigt nr ges
 		switch(slumpadRuta) {
-		case 1 -> spelplan[0][0] = 22;
-		case 2 -> spelplan[0][1] = 22;
-		case 3 -> spelplan[0][2] = 22;
-		case 4 -> spelplan[1][0] = 22;
-		case 5 -> spelplan[1][1] = 22;
-		case 6 -> spelplan[1][2] = 22;
-		case 7 -> spelplan[2][0] = 22;
-		case 8 -> spelplan[2][1] = 22;
-		case 9 -> spelplan[2][2] = 22;	
+		case 1 -> spelplan[0][0] = "X";
+		case 2 -> spelplan[0][1] = "X";
+		case 3 -> spelplan[0][2] = "X";
+		case 4 -> spelplan[1][0] = "X";
+		case 5 -> spelplan[1][1] = "X";
+		case 6 -> spelplan[1][2] = "X";
+		case 7 -> spelplan[2][0] = "X";
+		case 8 -> spelplan[2][1] = "X";
+		case 9 -> spelplan[2][2] = "X";	
 		}
 
 
@@ -85,6 +85,8 @@ public class Main {
 			}
 			System.out.println();
 		}
+		
+		sc.close();
 		
 	}//end main
 
