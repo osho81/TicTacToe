@@ -7,7 +7,7 @@ public class PrintOut {
 	public void printBoard(String[][] board) {
 
 		System.out.println();
-		String print = "";  // Deklarera här så variabeln blir tillgänglig i hela klassen
+		String print = "";
 		
 		for( int row = 0; row < board.length; row++ ) { // För varje rad, skapa följande delrader
 			
