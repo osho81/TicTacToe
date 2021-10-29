@@ -2,14 +2,16 @@ package game;
 
 import game.tools.GameLogic;
 
+// Main startar GameLogic, som i sin tur kontrollerar spelstrukturen
+
 public class Main {
 
 	public static void main(String[] args) {
 		
-		// skapa ett objekt av klassen GameLogic
+		// Skapa ett objekt av klassen GameLogic
 		GameLogic gameLogic = new GameLogic();
 		
-		// ropa metoderna som finns i klassen GameLogic
+		// Ropa metoderna som finns i klassen GameLogic, genom objektet ovan
 		gameLogic.run();
 		
 	}
