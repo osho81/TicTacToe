@@ -7,7 +7,7 @@ public class Moves {
 
 	public String[][] userInput(String[][] moveBoardUser, Scanner sc) {
 
-		System.out.print(" PÃ¥ vilken siffra vill du lÃ¤gga din markering? ");
+		System.out.print(" På vilken siffra vill du lägga din markering? ");
 		boolean valid = false;
 		int row = 0, col = 0;
 		int userChoice = getInput(sc, false);
@@ -31,7 +31,7 @@ public class Moves {
 			if (!moveBoardUser[row][col].equalsIgnoreCase("X")  && !moveBoardUser[row][col].equalsIgnoreCase("O")) {
 				valid = true;
 			}else {
-				System.out.println("Ogiltigt val fÃ¶rsÃ¶k igen");
+				System.out.println("Ogiltigt val försök igen");
 				userChoice = getInput(sc, false);
 			}
 		}
@@ -48,9 +48,9 @@ public class Moves {
 				if (output <= 9 && output > 0) // logiskt!
 					validInput = true;
 				else
-					System.out.println("Ogiltigt val fÃ¶rsÃ¶k igen");
+					System.out.println("Ogiltigt val försök igen");
 			} catch (Exception e) {
-				System.out.println("Ogiltigt val fÃ¶rsÃ¶k igen");
+				System.out.println("Ogiltigt val försök igen");
 				sc.next();
 			}
 		}

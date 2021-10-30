@@ -9,7 +9,7 @@ public class GameLogic {
 	PrintOut printOut = new PrintOut(); // Skapa objekt av klassen PrintOut
 	Moves moves = new Moves(); // skapar objekt av klassen Moves
 
-	String[][] board; // Deklareras h√§r s√• den √§r tillg√§nglig i hela klassen
+	String[][] board; // Deklareras h‰r sÂ den ‰r tillg‰nnglig i hela klassen
 	
 	public void run() { // Anropad fr√•n Main; kontrollerar spelstrukturen
 

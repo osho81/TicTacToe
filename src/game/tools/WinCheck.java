@@ -2,7 +2,7 @@ package game.tools;
 
 public class WinCheck {
 
-	// Ta emot array (board) frÃ¥n gameLogic; return boolean fÃ¶r att kontrollera
+	// Ta emot array (board) från gameLogic; return boolean för att kontrollera
 	// rundor
 	public static boolean winChecker(String[][] currentBoard) {
 
@@ -23,12 +23,12 @@ public class WinCheck {
 			}
 
 			if (threeO == 3) {
-				System.out.println("You Win!");
+				System.out.println("Du vinner!");
 				noWin = false;
 				break;
 			}
 			if (threeX == 3) {
-				System.out.println("Computer Wins!");
+				System.out.println("Datorn!");
 				noWin = false;
 				break;
 			}
@@ -47,12 +47,12 @@ public class WinCheck {
 		}
 
 		if (threeO == 3) {
-			System.out.println("You Win!");
+			System.out.println("Du vinner!");
 			noWin = false;
 			break;
 		}
 		if (threeX == 3) {
-			System.out.println("Computer Wins!");
+			System.out.println("Datorn!");
 			noWin = false;
 			break;
 		}
@@ -62,11 +62,11 @@ public class WinCheck {
 		// Kontrollera tre i rad diagonalt
 		if ((currentBoard[1][1] == "O" && ((currentBoard[0][0] == "O" && currentBoard[2][2] == "O") || 
 				(currentBoard[0][2] == "O" && currentBoard[2][0] == "O")))) {
-			System.out.println("You Win!");
+			System.out.println("Du vinner!");
 			noWin = false;
 		} else if ((currentBoard[1][1] == "X" && ((currentBoard[0][0] == "X" && currentBoard[2][2] == "X") || 
 				(currentBoard[0][2] == "X" && currentBoard[2][0] == "X")))) {
-			System.out.println("Computer Wins!");
+			System.out.println("Datorn!");
 			noWin = false;
 		}
 		
