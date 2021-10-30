@@ -1,20 +1,18 @@
 package game.tools;
 
 import java.util.Random;
-
-import game.Main;
+import java.util.Scanner;
 
 public class Moves {
 
-	public static String[][] userInput(String[][] moveBoardUser) {
+	public String[][] userInput(String[][] moveBoardUser, Scanner sc) {
 
+		System.out.print(" På vilken siffra vill du lägga din markering? ");
 		boolean valid = false;
 		int row = 0, col = 0;
-		int userChoice;
-
+		int userChoice = getInput(sc, false);
+		
 		while (!valid) {
-			System.out.print(" På vilken siffra vill du lägga din markering? ");
-			userChoice = Main.sc.nextInt();
 
 			if (userChoice == 1 || userChoice == 2 || userChoice == 3)
 				row = 0;
@@ -30,31 +28,53 @@ public class Moves {
 			else
 				col = 2;
 
-			if (moveBoardUser[row][col] != "X" || moveBoardUser[row][col] != "O") {
+			if (!moveBoardUser[row][col].equalsIgnoreCase("X")  && !moveBoardUser[row][col].equalsIgnoreCase("O")) {
 				valid = true;
+			}else {
+				System.out.println("Ogiltigt val försök igen");
+				userChoice = getInput(sc, false);
 			}
-
 		}
 		moveBoardUser[row][col] = "O";
 		return moveBoardUser;
 	} // end userInput
+	
+	// kontrollera inmatning (felhantera) och lägg till logiken att användaren ska inte välja en ruta som inte existerar
+	private int getInput(Scanner sc, boolean validInput) {
+		int output = 0;
+		while (!validInput) {
+			try {
+				output = sc.nextInt();
+				if (output <= 9 && output > 0) // logiskt!
+					validInput = true;
+				else
+					System.out.println("Ogiltigt val försök igen");
+			} catch (Exception e) {
+				System.out.println("Ogiltigt val försök igen");
+				sc.next();
+			}
+		}
+		return output;
+	}
 
 	// Computer generated move
-	public static String[][] computerMove(String[][] CompBoard) {
+	public String[][] computerMove(String[][] CompBoard) {
 
-		int randomRow;
-		int randomCol;
-
-		System.out.print("Datorns drag.");
+		System.out.print("Datorns drag.\n");
 		Random rand = new Random();
-		do {
+
+		int randomRow = rand.nextInt(3); // slumpa ett värde
+		int randomCol = rand.nextInt(3);
+		// om dator val är redan antagen slumpa igen
+		while (CompBoard[randomRow][randomCol].equalsIgnoreCase("X")
+				|| CompBoard[randomRow][randomCol].equalsIgnoreCase("O")) {
 			randomRow = rand.nextInt(3);
 			randomCol = rand.nextInt(3);
-		} while (CompBoard[randomRow][randomCol] == "X" || CompBoard[randomRow][randomCol] == "O");
+		}
 
 		CompBoard[randomRow][randomCol] = "X";
 
 		return CompBoard;
 
-	} // end generated computer move 
+	} // end generated computer move
 } // end class

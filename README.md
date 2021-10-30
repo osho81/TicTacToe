@@ -13,9 +13,13 @@
 Included in solution:
 
 - [x] Handle the data in a 2D Array.
-- [ ] Player vs computer.
-	- [ ] take user input.
-	- [ ] use random function for computer move.
+- [x] Player vs computer.
+	- [x] take user input.
+	- [x] use random function for computer move.
+	
+> check for data entry mismatches to prevent errors :heavy_check_mark:✔️
+	
+
 - [ ] Multiple play-rounds.
 - [ ] Check for win and keep count.
 - [ ] Levels of hardness.
