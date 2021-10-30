@@ -11,8 +11,11 @@ public class Main {
 		// Skapa ett objekt av klassen GameLogic
 		GameLogic gameLogic = new GameLogic();
 		
+		
+		
+		
 		// Ropa metoden run() som finns i klassen GameLogic, genom objektet ovan
-		gameLogic.run();
+		gameLogic.run(); // 
 		
 	}
 }

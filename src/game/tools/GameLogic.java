@@ -1,22 +1,42 @@
 package game.tools;
 
+import java.nio.file.AtomicMoveNotSupportedException;
 
 // GameLogic har startats i Main, som i sin tur kontrollerar spelstrukturen
 
 public class GameLogic {
 	
 	PrintOut printOut = new PrintOut(); // Skapa objekt av klassen PrintOut
+	Moves moves = new Moves(); //skapar objekt av klassen Moves
 	
 	String[][] board; // Deklareras hÃ¤r sÃ¥ den Ã¤r tillgÃ¤nglig i hela klassen
 
 	public void run() {  // Anropad frÃ¥n Main; kontrollerar spelstrukturen
 
 		initiateArray();
+		System.out.println("Välkommen till tre i rad! \nDina rutor markeras med O och datorns med X. Varsågod att börja.");
 		
-		// Anropa metoden printBoard i klassen PrintOut, genom objektet printOut 
-		printOut.printBoard(board); 
+		// Anropa metoden printBoard i klassen PrintOut, genom objektet printOut		
+		
+		printOut.printBoard(board); //skriver ut spelplanen för första gången
+		
+		
+		
+		//loopa tills vinnare eller spelplanen full
+		board = moves.userInput(board); //användarens drag
+		
+		printOut.printBoard(board); //utskrift efter användarens drag
+		
+		board = moves.computerMove(board); //datorns drag
+		
+		printOut.printBoard(board); //utskrift efter datorns drag
+		//slut loop
 	}
 
+	
+	
+	
+	
 	private void initiateArray() {
 		board = new String[3][3];  // Redan deklarerad Ã¶verst
 		
@@ -29,4 +49,4 @@ public class GameLogic {
 		}
 	}
 
-}
+}//end class
