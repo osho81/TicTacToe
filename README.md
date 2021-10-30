@@ -22,7 +22,7 @@ Included in solution:
 
 ------------
 #### Snapshot from the start of the game
-<img src="https://github.com/osho81/Grupp2b/blob/main/gameSnap.PNG" alt="Snapshot from the game" width="600"/>
+<img src="https://github.com/osho81/Grupp2b/blob/main/gameSnap.PNG" alt="Snapshot from the game" width="250"/>
 
 
 #### New technique learned:
