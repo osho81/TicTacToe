@@ -15,7 +15,7 @@ public class GameLogic {
 
 		initiateArray();
 		System.out.println(
-				"VÃ¤lkommen till tre i rad! \nDina rutor markeras med O och datorns med X. VarsÃ¥god att bÃ¶rja.");
+				"Välkommen till tre i rad! \nDina rutor markeras med O och datorns med X. Varsågod att börja.");
 
 		// Anropa metoden printBoard i klassen PrintOut, genom objektet printOut
 
