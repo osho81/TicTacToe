@@ -12,7 +12,7 @@
 
 Included in solution:
 
-- [x] Handel the data in a 2D Array.
+- [x] Handle the data in a 2D Array.
 - [ ] Player vs computer.
 	- [ ] take user input.
 	- [ ] use random function for computer move.
@@ -21,8 +21,11 @@ Included in solution:
 - [ ] Levels of hardness.
 
 ------------
+#### Snapshot from the start of the game
+<img src="https://github.com/osho81/fruitful/blob/main/gameSnap.PNG" alt="Snapshot from the game" width="600"/>
 
-#### new technique learned:
+
+#### New technique learned:
 - [ ] **Rotate Array:**
 ```java
 int size = board.length;
