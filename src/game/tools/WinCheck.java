@@ -28,7 +28,7 @@ public class WinCheck {
 				break;
 			}
 			if (threeX == 3) {
-				System.out.println("Datorn!");
+				System.out.println("Datorn vinner!");
 				noWin = false;
 				break;
 			}
@@ -52,7 +52,7 @@ public class WinCheck {
 			break;
 		}
 		if (threeX == 3) {
-			System.out.println("Datorn!");
+			System.out.println("Datorn vinner!");
 			noWin = false;
 			break;
 		}
@@ -66,7 +66,7 @@ public class WinCheck {
 			noWin = false;
 		} else if ((currentBoard[1][1] == "X" && ((currentBoard[0][0] == "X" && currentBoard[2][2] == "X") || 
 				(currentBoard[0][2] == "X" && currentBoard[2][0] == "X")))) {
-			System.out.println("Datorn!");
+			System.out.println("Datorn vinner!");
 			noWin = false;
 		}
 		
