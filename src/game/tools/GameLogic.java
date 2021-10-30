@@ -41,9 +41,9 @@ public class GameLogic {
 	}
 
 	private void initiateArray() {
-		board = new String[3][3]; // Redan deklarerad Ã¶verst
+		board = new String[3][3]; // Redan deklarerad överst
 
-		for (int row = 0, count = 1; row < board.length; row++) { // Count gÃ¥r frÃ¥n 1-9
+		for (int row = 0, count = 1; row < board.length; row++) { // Count går från 1-9
 
 			// count 1-3 tilldelas row 1, count 4-6 tilldelas row 2, count 7-9 tilldelas row
 			// 3

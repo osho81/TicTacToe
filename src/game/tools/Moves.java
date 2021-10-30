@@ -39,7 +39,7 @@ public class Moves {
 		return moveBoardUser;
 	} // end userInput
 	
-	// kontrollera inmatning (felhantera) och l√§gg till logiken att anv√§ndaren ska inte v√§lja en ruta som inte existerar
+	// kontrollera inmatning (felhantera) och l‰gg till logiken att anv‰ndaren ska inte v‰lja en ruta som inte existerar
 	private int getInput(Scanner sc, boolean validInput) {
 		int output = 0;
 		while (!validInput) {
@@ -63,7 +63,7 @@ public class Moves {
 		System.out.print("Datorns drag.\n");
 		Random rand = new Random();
 
-		int randomRow = rand.nextInt(3); // slumpa ett v√§rde
+		int randomRow = rand.nextInt(3); // slumpa ett v‰rde
 		int randomCol = rand.nextInt(3);
 		// om dator val √§r redan antagen slumpa igen
 		while (CompBoard[randomRow][randomCol].equalsIgnoreCase("X")
