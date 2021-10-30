@@ -1,64 +1,60 @@
 package game.tools;
 
 import java.util.Random;
-import java.util.Scanner;
 
-
-
+import game.Main;
 
 public class Moves {
 
 	public static String[][] userInput(String[][] moveBoardUser) {
-		
-		Scanner sc = new Scanner(System.in);
-				
-		System.out.print(" PÂ vilken siffra vill du l‰gga din markering? "); 
-		
-		
-		
-		int chosenUser=sc.nextInt();
-				
-		switch(chosenUser) { 
-		
-		case 1 -> moveBoardUser[0][0] = "O";
-		case 2 -> moveBoardUser[0][1] = "O";
-		case 3 -> moveBoardUser[0][2] = "O";
-		case 4 -> moveBoardUser[1][0] = "O";
-		case 5 -> moveBoardUser[1][1] = "O";
-		case 6 -> moveBoardUser[1][2] = "O";
-		case 7 -> moveBoardUser[2][0] = "O";
-		case 8 -> moveBoardUser[2][1] = "O";
-		case 9 -> moveBoardUser[2][2] = "O";	
-		
-	}//end switch
-		
-		sc.close();
-				
-		return moveBoardUser;
-		
-				
-	}//end userinput
 
-	public  static String[][] computerMove(String[][] CompBoard) {
-		
+		boolean valid = false;
+		int row = 0, col = 0;
+		int userChoice;
+
+		while (!valid) {
+			System.out.print(" P√• vilken siffra vill du l√§gga din markering? ");
+			userChoice = Main.sc.nextInt();
+
+			if (userChoice == 1 || userChoice == 2 || userChoice == 3)
+				row = 0;
+			else if (userChoice == 4 || userChoice == 5 || userChoice == 6)
+				row = 1;
+			else
+				row = 2;
+
+			if (userChoice == 1 || userChoice == 4 || userChoice == 7)
+				col = 0;
+			else if (userChoice == 2 || userChoice == 5 || userChoice == 8)
+				col = 1;
+			else
+				col = 2;
+
+			if (moveBoardUser[row][col] != "X" || moveBoardUser[row][col] != "O") {
+				valid = true;
+			}
+
+		}
+		moveBoardUser[row][col] = "O";
+		return moveBoardUser;
+	} // end userInput
+
+	// Computer generated move
+	public static String[][] computerMove(String[][] CompBoard) {
+
 		int randomRow;
 		int randomCol;
-		
+
 		System.out.print("Datorns drag.");
-		Random rand = new Random(); 
+		Random rand = new Random();
 		do {
-		randomRow = rand.nextInt(3);
-		randomCol = rand.nextInt(3);
-		}
-		while (CompBoard[randomRow][randomCol]=="X" || CompBoard[randomRow][randomCol]=="O");
-		
+			randomRow = rand.nextInt(3);
+			randomCol = rand.nextInt(3);
+		} while (CompBoard[randomRow][randomCol] == "X" || CompBoard[randomRow][randomCol] == "O");
+
 		CompBoard[randomRow][randomCol] = "X";
-		
+
 		return CompBoard;
-		
-	
-		
-		
-	}
-}//end class
-	
+
+	} // end generated computer move 
+} // end class
