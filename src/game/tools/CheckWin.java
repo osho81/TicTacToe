@@ -24,11 +24,11 @@ public class CheckWin {
 				if (board[i][j].equalsIgnoreCase("o")) countO++;
 				
 				if (countX == 3) {
-					System.out.println("You win!");
+					System.out.println("  You win!");
 					return true;
 				}
 				if (countO == 3) {
-					System.out.println("Computer win!");
+					System.out.println("  Computer win!");
 					return true;
 				}
 			}
@@ -46,14 +46,14 @@ public class CheckWin {
 				board[2][2] == "O") || 
 				(board[0][2] == "O" && 
 				board[2][0] == "O")))) {
-			System.out.println("Computer Wins!");
+			System.out.println("  Computer Wins!");
 			return true;
 		} else if ((board[1][1] == "X" && 
 				((board[0][0] == "X" && 
 				board[2][2] == "X") || 
 				(board[0][2] == "X" && 
 				board[2][0] == "X")))) {
-			System.out.println("You Win!");
+			System.out.println("  You Win!");
 			return true;
 		}
 		
@@ -73,11 +73,11 @@ public class CheckWin {
 				if (board[j][i].equalsIgnoreCase("o")) countO++;
 				
 				if (countX == 3) {
-					System.out.println("You win!");
+					System.out.println("  You win!");
 					return true;
 				}
 				if (countO == 3) {
-					System.out.println("Computer win!");
+					System.out.println("  Computer win!");
 					return true;
 				}
 			}

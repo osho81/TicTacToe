@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 import game.tools.GameLogic;
 
-//Main startar GameLogic, som i sin tur kontrollerar spelstrukturen
+//Main starts GameLogic, which in turn controls the game structure
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in); // Create scanner object, to pass to other classes
 		
-		// Skapa en instans av klassen GameLogic
+		// Create instance of class GameLogic
 		GameLogic logic = new GameLogic();
 		
-		// Ropa metoden run() som finns i klassen GameLogic, genom objektet ovan
+		// Call method run() in the class GameLogic; through the object created above
 		logic.run(sc);
 		
 		sc.close();
