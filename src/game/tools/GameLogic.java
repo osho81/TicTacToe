@@ -2,6 +2,8 @@ package game.tools;
 
 import java.util.Scanner;
 
+
+
 // GameLogic har startats i Main, som i sin tur kontrollerar spelstrukturen
 
 public class GameLogic {
@@ -30,15 +32,24 @@ public class GameLogic {
 
 			printOut.printBoard(board); // utskrift efter användarens drag
 
-			board = moves.computerMove(board); // datorns drag
+			
+			if(numOfMoves<8) {
+				board = moves.computerMove(board); // datorns drag
 
-			printOut.printBoard(board); // utskrift efter datorns drag
+				printOut.printBoard(board); // utskrift efter datorns drag
+			
+			
 
-			noWin = WinCheck.winChecker(board);
-			numOfMoves = numOfMoves + 2; 
-		}
+				noWin = WinCheck.winChecker(board);
+				numOfMoves = numOfMoves + 2; 
+				
+			}else if (numOfMoves==8){
+				System.out.println("Det blev oavgjort!");
+				
+		}//end else
+		}//end while
 		sc.close();
-	}
+	}//end run
 
 	private void initiateArray() {
 		board = new String[3][3]; // Redan deklarerad överst
