@@ -5,7 +5,7 @@
 **Objective:**
 > create a simplified version of the game that can be play directly in IDE (Eclipse)
 
-**The team:** [Katarina](https://github.com/katarina-h "Katarina") - [Osama](https://github.com/osho81 "Osama") - [Mohamad](https://github.com/MohamadOjail "Mohamad Ojail")
+**The team:** [Katarina](https://github.com/katarina-h "Katarina") - [Mohamad](https://github.com/MohamadOjail "Mohamad Ojail") - [Osama](https://github.com/osho81 "Osama")
 
 ------------
 
