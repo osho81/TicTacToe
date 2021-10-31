@@ -1,18 +1,23 @@
 package game;
 
+import java.util.Scanner;
+
 import game.tools.GameLogic;
 
-// Main startar GameLogic, som i sin tur kontrollerar spelstrukturen
+//Main startar GameLogic, som i sin tur kontrollerar spelstrukturen
 
 public class Main {
-	
+
 	public static void main(String[] args) {
 		
-		// Skapa ett objekt av klassen GameLogic
-		GameLogic gameLogic = new GameLogic();
+		Scanner sc = new Scanner(System.in);
+		
+		// Skapa en instans av klassen GameLogic
+		GameLogic logic = new GameLogic();
 		
 		// Ropa metoden run() som finns i klassen GameLogic, genom objektet ovan
-		gameLogic.run(); // 
+		logic.run(sc);
 		
+		sc.close();
 	}
 }

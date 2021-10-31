@@ -5,87 +5,69 @@ import java.util.Scanner;
 
 public class Moves {
 
-	public String[][] userInput(String[][] moveBoardUser, Scanner sc) {
+	public void makeMove(int id, String[][] board, Scanner sc) {
 
-		System.out.print(" På vilken siffra vill du lägga din markering? ");
-		boolean valid = false;
-		int row = 0, col = 0;
-		int userChoice = getInput(sc, false);
-		
+		if (id == 0) user(board, sc);
+		if (id == 1) comp(board);
+	}
+	
+	// Computer generated move
+	private void comp(String[][] board) {
+
+		System.out.println("Computer move:");
+		Random rnd = new Random();
+		int x = -1, y = -1; boolean valid;
+		x = rnd.nextInt(3); y = rnd.nextInt(3);
+		valid = (board[x][y].equalsIgnoreCase("x") || board[x][y].equalsIgnoreCase("o")) ? false : true;
 		while (!valid) {
+			x = rnd.nextInt(3); y = rnd.nextInt(3);
+			valid = (!board[x][y].equalsIgnoreCase("x") && !board[x][y].equalsIgnoreCase("o"));
+		}
+		board[x][y] = "O";
+	}
+	
+	// metoden tar emot anvÃ¤ndaren inmatning
+	private void user(String[][] board, Scanner sc) {
 
-			if (userChoice == 1 || userChoice == 2 || userChoice == 3)
-				row = 0;
-			else if (userChoice == 4 || userChoice == 5 || userChoice == 6)
-				row = 1;
-			else
-				row = 2;
-
-			if (userChoice == 1 || userChoice == 4 || userChoice == 7)
-				col = 0;
-			else if (userChoice == 2 || userChoice == 5 || userChoice == 8)
-				col = 1;
-			else
-				col = 2;
-
-			if (!moveBoardUser[row][col].equalsIgnoreCase("X")  && !moveBoardUser[row][col].equalsIgnoreCase("O")) {
+		System.out.print ("Choose a spot: ");
+		int pick = getUserInput(sc); boolean valid = false;
+		
+		/* while loopen kollar att inmatat vÃ¤rdet skapa ingen konflikt med valda drag (datorns/anvÃ¤ndarens) */
+		while (!valid) {
+			int x = -1, y = -1, found = 0;
+			for (int i = 0; i < board.length; i++) {
+				for (int j = 0; j < board[i].length; j++) {
+					if(board[i][j].equals(pick + "")) {
+						found++;
+						x = i; y = j; break;
+					}
+				}
+			}
+			if(found > 0) {
+				board[x][y] = "X"; // om vÃ¤rdet Ã¤r giltigt tilldela det till arrayn
 				valid = true;
 			}else {
-				System.out.println("Ogiltigt val försök igen");
-				userChoice = getInput(sc, false);
+				System.out.println("3- invalid input try again:");
+				pick = getUserInput(sc); // annars anvÃ¤ndaren matar in ett nytt vÃ¤rde
 			}
 		}
-		moveBoardUser[row][col] = "O";
-		return moveBoardUser;
-	} // end userInput
+	}
 	
-	// kontrollera inmatning (felhantera) och lägg till logiken att användaren ska inte välja en ruta som inte existerar
-	private int getInput(Scanner sc, boolean validInput) {
-		int output = 0;
-		while (!validInput) {
+	
+	/* metoden tvingar anvÃ¤ndaren att mata en siffra
+	   mellan 1 och 9 och inte nÃ¥gon annan char - sedan returnerar den en giltig siffra */
+	private int getUserInput(Scanner sc) {
+		int output = -1; boolean valid = false;
+		while (!valid) {
 			try {
 				output = sc.nextInt();
-				if (output <= 9 && output > 0) // logiskt!
-					validInput = true;
-				else
-					System.out.println("Ogiltigt val försök igen");
+				valid = (output <= 9 && output > 0) ? true : false;
 			} catch (Exception e) {
-				System.out.println("Ogiltigt val försök igen");
+				System.out.println("1- invalid input try again:");
 				sc.next();
 			}
 		}
 		return output;
 	}
 
-	// Computer generated move
-	public String[][] computerMove(String[][] CompBoard) {
-
-		
-		
-		System.out.print("Datorns drag.\n");
-		Random rand = new Random();
-
-		int randomRow = rand.nextInt(3); // slumpa ett värde
-		int randomCol = rand.nextInt(3);
-		// om dator val redan är taget slumpas det igen
-		while (CompBoard[randomRow][randomCol].equalsIgnoreCase("X")
-				|| CompBoard[randomRow][randomCol].equalsIgnoreCase("O")) {
-			randomRow = rand.nextInt(3);
-			randomCol = rand.nextInt(3);
-		}
-
-		CompBoard[randomRow][randomCol] = "X";
-		
-		
-	
-		
-		
-
-		return CompBoard;
-		
-		
-		
-		
-
-	} // end generated computer move
-} // end class
+}

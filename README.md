@@ -17,12 +17,11 @@ Included in solution:
 	- [x] take user input.
 	- [x] use random function for computer move.
 	
-> check for data entry mismatches to prevent errors :heavy_check_mark:✔️
+> check for data entry mismatches to prevent errors :heavy_check_mark:
 	
 
 - [ ] Multiple play-rounds.
-- [ ] Check for win and keep count.
-- [ ] Levels of hardness.
+- [x] Check for win.
 
 ------------
 #### Snapshot from the start of the game

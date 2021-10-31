@@ -2,66 +2,43 @@ package game.tools;
 
 import java.util.Scanner;
 
-
-
-// GameLogic har startats i Main, som i sin tur kontrollerar spelstrukturen
-
 public class GameLogic {
 	
-	PrintOut printOut = new PrintOut(); // Skapa objekt av klassen PrintOut
-	Moves moves = new Moves(); // skapar objekt av klassen Moves
-
-	String[][] board; // Deklareras här så den är tillgännglig i hela klassen
+	PrintOut print = new PrintOut();
+	CheckWin checkWin = new CheckWin();
+	Moves takeInput = new Moves();
+	String[][] board;
 	
-	public void run() { // Anropad från Main; kontrollerar spelstrukturen
+	public void run(Scanner sc) {
+		initBoard();
+		print.showBoard(board);
+		play(sc);
+		
+	}
 
-		initiateArray();
-		System.out.println(
-				"Välkommen till tre i rad! \nDina rutor markeras med O och datorns med X. Varsågod att börja.");
+	private void play(Scanner sc) {
+		
+		int playerId = 0, moves = 0; boolean winner = false;
+		
+		while (!winner && moves < 9) {
+			takeInput.makeMove(playerId,board ,sc);
+			playerId = (playerId == 0) ? 1 : 0;
+			moves++;
+			winner = checkWin.check(board);
+			print.showBoard(board);
+		}
+		
+		if(moves > 8 && !winner) System.out.println("Ingen vinnare");
+	}
 
-		// Anropa metoden printBoard i klassen PrintOut, genom objektet printOut
-
-		printOut.printBoard(board); // skriver ut spelplanen för första gången
-
-		boolean noWin = true;
-		int numOfMoves = 0;
-		Scanner sc = new Scanner(System.in);
-		// loopa tills vinnare eller spelplanen full
-		while (noWin && numOfMoves < 9) {
-			board = moves.userInput(board, sc); // användarens drag
-
-			printOut.printBoard(board); // utskrift efter användarens drag
-
-			
-			if(numOfMoves<8) {
-				board = moves.computerMove(board); // datorns drag
-
-				printOut.printBoard(board); // utskrift efter datorns drag
-			
-			
-
-				noWin = WinCheck.winChecker(board);
-				numOfMoves = numOfMoves + 2; 
-				
-			}else if (numOfMoves==8){
-				System.out.println("Det blev oavgjort!");
-				
-		}//end else
-		}//end while
-		sc.close();
-	}//end run
-
-	private void initiateArray() {
-		board = new String[3][3]; // Redan deklarerad överst
-
-		for (int row = 0, count = 1; row < board.length; row++) { // Count går från 1-9
-
-			// count 1-3 tilldelas row 1, count 4-6 tilldelas row 2, count 7-9 tilldelas row
-			// 3
-			for (int col = 0; col < board[row].length; col++, count++) {
-				board[row][col] = count + ""; // Typomvandla int till string, med genväg
+	private void initBoard() {
+		board = new String[3][3];
+		for(int i = 0, x = 1; i < board.length; i++) {
+			for(int j = 0; j < board[i].length; j++, x++) {
+				board[i][j] = x + "";
 			}
 		}
 	}
-
-}// end class
+	
+	
+}
