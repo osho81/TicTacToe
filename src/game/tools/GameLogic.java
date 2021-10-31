@@ -11,7 +11,7 @@ public class GameLogic {
 
 	String[][] board; // Deklareras här så den är tillgännglig i hela klassen
 	
-	public void run() { // Anropad frÃ¥n Main; kontrollerar spelstrukturen
+	public void run() { // Anropad från Main; kontrollerar spelstrukturen
 
 		initiateArray();
 		System.out.println(
@@ -19,23 +19,23 @@ public class GameLogic {
 
 		// Anropa metoden printBoard i klassen PrintOut, genom objektet printOut
 
-		printOut.printBoard(board); // skriver ut spelplanen fï¿½r fï¿½rsta gï¿½ngen
+		printOut.printBoard(board); // skriver ut spelplanen för första gången
 
 		boolean noWin = true;
 		int numOfMoves = 0;
 		Scanner sc = new Scanner(System.in);
 		// loopa tills vinnare eller spelplanen full
 		while (noWin && numOfMoves < 9) {
-			board = moves.userInput(board, sc); // anvï¿½ndarens drag
+			board = moves.userInput(board, sc); // användarens drag
 
-			printOut.printBoard(board); // utskrift efter anvï¿½ndarens drag
+			printOut.printBoard(board); // utskrift efter användarens drag
 
 			board = moves.computerMove(board); // datorns drag
 
 			printOut.printBoard(board); // utskrift efter datorns drag
 
 			noWin = WinCheck.winChecker(board);
-			numOfMoves++; 
+			numOfMoves = numOfMoves + 2; 
 		}
 		sc.close();
 	}
@@ -48,7 +48,7 @@ public class GameLogic {
 			// count 1-3 tilldelas row 1, count 4-6 tilldelas row 2, count 7-9 tilldelas row
 			// 3
 			for (int col = 0; col < board[row].length; col++, count++) {
-				board[row][col] = count + ""; // Typomvandla int till string, med genvÃ¤g
+				board[row][col] = count + ""; // Typomvandla int till string, med genväg
 			}
 		}
 	}

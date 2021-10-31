@@ -60,12 +60,15 @@ public class Moves {
 	// Computer generated move
 	public String[][] computerMove(String[][] CompBoard) {
 
+		int countMoves = 2; //första gången while-loopen körs så är datorns drag drag nr 2 i spelet. 
+		if (countMoves<8) { //kör så länge spelplanen inte är full DET HÄR FUNGERAR INTER Om jag sätter if (countMoves<2) så går den till if-satsen men annars går den in i if. Förstår ej varför och kan inte debugga detta.
+			countMoves = countMoves + 2;
 		System.out.print("Datorns drag.\n");
 		Random rand = new Random();
 
 		int randomRow = rand.nextInt(3); // slumpa ett värde
 		int randomCol = rand.nextInt(3);
-		// om dator val Ã¤r redan antagen slumpa igen
+		// om dator val redan är taget slumpas det igen
 		while (CompBoard[randomRow][randomCol].equalsIgnoreCase("X")
 				|| CompBoard[randomRow][randomCol].equalsIgnoreCase("O")) {
 			randomRow = rand.nextInt(3);
@@ -73,8 +76,19 @@ public class Moves {
 		}
 
 		CompBoard[randomRow][randomCol] = "X";
+		
+		} else {
+			System.out.println("Det blev oavgjort!");
+		}
+	
+		
+		
 
 		return CompBoard;
+		
+		
+		
+		
 
 	} // end generated computer move
 } // end class
