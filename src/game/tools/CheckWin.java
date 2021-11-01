@@ -23,8 +23,8 @@ public class CheckWin {
 			countO = 0;
 
 			for (int j = 0; j < board[i].length; j++) {
-				if (board[i][j].equalsIgnoreCase("x")) // [i][j] = [0][1], [0][1], [0][2]
-					countX++;
+				if (board[i][j].equalsIgnoreCase("x")) // [i][j] = [0][0], [0][1], [0][2] etc.
+					countX++; //2nd: [1][0], [1][1], [1][2]; 3rd: [2][0], [2][1], [2][2]
 				if (board[i][j].equalsIgnoreCase("o"))
 					countO++;
 
@@ -67,8 +67,8 @@ public class CheckWin {
 			countO = 0;
 
 			for (int j = 0; j < board[i].length; j++) {
-				if (board[j][i].equalsIgnoreCase("x")) // [j][i] = [0][0], [1][0], [2][0]
-					countX++;
+				if (board[j][i].equalsIgnoreCase("x")) // [j][i] = [0][0], [1][0], [2][0], 
+					countX++; //2nd: [0][1], [1][1], [2][1]; 3rd: [0][2], [1][2], [2][2] 
 				if (board[j][i].equalsIgnoreCase("o"))
 					countO++;
 
