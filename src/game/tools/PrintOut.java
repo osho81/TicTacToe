@@ -19,7 +19,7 @@ public class PrintOut {
 			System.out.print("\n\t");
 			for (int col = 0; col < board[row].length; col++) {
 				// If column 1 or 2, include |, otherwise without |
-				// In this row-part, also value of current board[row][col] 
+				// In this row-part, also print value of current board[row][col] 
 				print = (col < 2) ? board[row][col] + "  |  " : board[row][col]; 
 				System.out.print(print);
 			}
