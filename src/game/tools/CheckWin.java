@@ -6,7 +6,7 @@ public class CheckWin {
 
 	public boolean check(String[][] board) {
 
-		// If one of these is returned true, this in turn is returned true
+		// If one of these is returned true, this in turn is returned true.
 		// otherwise it is returned false...
 		if (checkRows(board)) return true;
 		if (checkDiagnal(board)) return true;
