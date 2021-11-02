@@ -12,7 +12,7 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in); // Create scanner object, to pass to other classes
 		
-		// Create instance of class GameLogic
+		// Create instance/object of class GameLogic
 		GameLogic logic = new GameLogic();
 		
 		// Call method run() in the class GameLogic; through the object created above

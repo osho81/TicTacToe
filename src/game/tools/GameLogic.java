@@ -52,7 +52,7 @@ public class GameLogic {
 	// Welcomes user
 	private void welcome() {
 		System.out.println();
-		String welcomeString = "  Welcome To Tic Tac Toe!";
+		String welcomeString = "  Welcome To Tic Tac Toe! \n  Your marks are \"X\"";
 		for (int i = 0; i < welcomeString.length(); i++) {
 			System.out.print(welcomeString.substring(i, i + 1));
 			try {
