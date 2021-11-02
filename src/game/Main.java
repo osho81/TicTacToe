@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import game.tools.GameLogic;
 
-//Main starts GameLogic, which in turn controls the game structure
+// Main starts GameLogic, which in turn controls the game structure
 
 public class Main {
 
@@ -18,6 +18,6 @@ public class Main {
 		// Call method run() in the class GameLogic; through the object created above
 		logic.run(sc);
 		
-		sc.close();
+		sc.close(); // Close scanner
 	}
 }
