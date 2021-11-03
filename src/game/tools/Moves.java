@@ -19,23 +19,23 @@ public class Moves {
 
 		System.out.println("Computer move:");
 		Random rnd = new Random();
-		int x = -1, y = -1; // x = row; y = column
+		int row = -1, col = -1; 
 		boolean valid;
-		x = rnd.nextInt(3); // Random numbers generated: 0, 1 or 2
-		y = rnd.nextInt(3);
+		row = rnd.nextInt(3); // Random numbers generated: 0, 1 or 2
+		col = rnd.nextInt(3);
 		// If board value of generated board spot is x or o (i.e. taken), valid is
 		// false, otherwise valid is true
-		valid = (board[x][y].equalsIgnoreCase("x") || board[x][y].equalsIgnoreCase("o")) ? false : true;
+		valid = (board[row][col].equalsIgnoreCase("x") || board[row][col].equalsIgnoreCase("o")) ? false : true;
 		// If valid is false (!valid), then while condition is true >> while loop runs
 		// (Otherwise skip loop)
 		while (!valid) {
-			x = rnd.nextInt(3); // New row/col pairs are generated
-			y = rnd.nextInt(3);
+			row = rnd.nextInt(3); // New row/col pairs are generated
+			col = rnd.nextInt(3);
 			// Valid is true when generated board spot is not (!) x or o; loop breaks
-			valid = (!board[x][y].equalsIgnoreCase("x") && !board[x][y].equalsIgnoreCase("o"));
+			valid = (!board[row][col].equalsIgnoreCase("x") && !board[row][col].equalsIgnoreCase("o"));
 		}
 		// Generated board spot is assigned an O; with or without the loop
-		board[x][y] = "O";
+		board[row][col] = "O";
 	}
 
 	// metoden tar emot användaren inmatning
