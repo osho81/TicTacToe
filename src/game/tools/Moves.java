@@ -17,17 +17,17 @@ public class Moves {
 	// Computer generated move
 	private void comp(String[][] board) {
 
-		System.out.println("Computer move:");
+		System.out.println("  Computer move: ");
 		Random rnd = new Random();
 		int row = -1, col = -1; // values that do not exist when creating random
 		boolean valid;
 		row = rnd.nextInt(3); // Random numbers generated: 0, 1 or 2
 		col = rnd.nextInt(3);
-		
+
 		// If board value of generated board spot is "x" or "o" (i.e. taken), valid is
 		// false, otherwise valid is true
 		valid = (board[row][col].equalsIgnoreCase("x") || board[row][col].equalsIgnoreCase("o")) ? false : true;
-		
+
 		// If valid is false (!valid), then while condition is true >> while loop runs
 		// (Otherwise skip loop)
 		while (!valid) {
@@ -40,35 +40,35 @@ public class Moves {
 		board[row][col] = "O";
 	}
 
-	// method for users choice
+	// Method for users choice
 	private void user(String[][] board, Scanner sc) {
 
-		System.out.print("Choose a spot: ");
+		System.out.print("  Choose a spot: ");
 		int pick = getUserInput(sc); // Get valid input 1-9 from getUserInput()
 		boolean valid = false;
 
 		// Checks if valid 1-9 (pick) also is a spot NOT already taken by user/computer
 		while (!valid) {
-			int x = -1, y = -1, found = 0;
+			int row = -1, col = -1, found = 0;
 			for (int i = 0; i < board.length; i++) {
 				for (int j = 0; j < board[i].length; j++) {
 					// If current board spot equals chosen number, then it is available
-					// I.e. spot is not taken by x or o. 
+					// I.e. spot is not taken by x or o.
 					// If available spot, do the following...
 					if (board[i][j].equals(pick + "")) { // "" is shortcut type casting
 						found++; // Controls following if-statement: found becomes 1
-						x = i; // Assign i, j to x, y
-						y = j; 
+						row = i; // Assign i, j to row, col
+						col = j;
 						break; // Break loop, and move to next part of this while loop
 					}
 				}
 			}
 			// If while was broken, i.e. found++ occurred (>0)...
 			if (found > 0) {
-				board[x][y] = "X"; // ...Assign X to board spot (at the time of loop break)
+				board[row][col] = "X"; // ...Assign X to board spot (at the time of loop break)
 				valid = true; // Break while loop
 			} else {
-				System.out.println("3- taken spot, try again:");
+				System.out.println("  Taken spot, try again: ");
 				pick = getUserInput(sc); // Else, start over while loop, with new pick
 			}
 		}
@@ -83,9 +83,12 @@ public class Moves {
 				output = sc.nextInt();
 				// If entered value is between 1-9, it is valid, so break loop
 				valid = (output <= 9 && output > 0) ? true : false;
-			} catch (Exception e) {
+			} catch (Exception e) { // If error, i.e. a letter instead of number etc.
 				sc.next();
-				System.out.println("1- invalid input, try again:");
+				System.out.print("  Invalid input."); 
+			}
+			if (!valid) { // If still invalid, tell user only 1-9 is allowed
+				System.out.println("  Choose a spot between 1-9: ");
 			}
 		}
 		return output;
